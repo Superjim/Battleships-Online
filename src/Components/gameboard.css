@@ -3,4 +3,6 @@
   grid-template-columns: repeat(10, 50px);
   grid-template-rows: repeat(10, 50px);
   background-color: lightblue;
+  height: 500px;
+  width: 500px;
 }
