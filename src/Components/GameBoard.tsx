@@ -11,7 +11,7 @@ interface Ship {
 
 const startBoardState: Ship[] = [];
 
-const ships: Ship[] = [];
+// const ships: Ship[] = [];
 
 for (let i = 0; i < 5; i++) {
   startBoardState.push({
