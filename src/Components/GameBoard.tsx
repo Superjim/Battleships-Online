@@ -12,14 +12,6 @@ interface Ship {
 
 const ships: Ship[] = [];
 
-// for (let i = 0; i < 5; i++) {
-//   ships.push({
-//     image: `Images/battleship_${i + 1}.png`,
-//     vertical: 0,
-//     horizontal: i + 1,
-//   });
-// }
-
 for (let i = 0; i < 5; i++) {
   ships.push({
     image: `Images/battleship_${i + 1}.png`,
