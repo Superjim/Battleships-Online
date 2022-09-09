@@ -107,10 +107,10 @@ function GameBoard() {
 
       setShips((value) => {
         const ships = value.map((s) => {
-          if (s.vertical === boardX && s.horizontal === boardY) {
-            s.vertical = x;
-            s.horizontal = y;
-          }
+          // if (s.vertical === boardX && s.horizontal === boardY) {
+          s.vertical = x;
+          s.horizontal = y;
+          // }
           return s;
         });
         return ships;
