@@ -2,7 +2,7 @@ Currently a WIP project.
 
 The project will be a free online battleships game focused on real time gameplay and ease of use.
 
- 
+https://jimbattleships.netlify.app/ 
 
 It will feature:
 
