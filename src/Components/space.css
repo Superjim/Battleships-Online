@@ -20,3 +20,7 @@
 .parked:active {
   cursor: grabbing;
 }
+
+.y {
+  transform: rotate(90deg);
+}

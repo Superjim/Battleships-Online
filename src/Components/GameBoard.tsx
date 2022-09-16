@@ -5,35 +5,48 @@ import Space from "./Space";
 
 interface Ship {
   image: string;
+  class: string;
   vertical: number;
   horizontal: number;
+  piece: number;
+  length: number;
+  orientation: string;
 }
 
 const startBoardState: Ship[] = [];
 
 // const ships: Ship[] = [];
 
-for (let i = 0; i < 5; i++) {
-  startBoardState.push({
-    image: `Images/battleship_${i + 1}.png`,
-    vertical: i + 0,
-    horizontal: 0,
-  });
-}
+// startBoardState.push({
+//   image: `Images/battleship_${0}.png`,
+//   vertical: 0,
+//   horizontal: 0,
+//   length: 5,
+//   orientation: true,
+//   class: "C",
+// });
 
 for (let i = 0; i < 5; i++) {
   startBoardState.push({
-    image: `Images/battleship_${i + 1}.png`,
-    vertical: i + 2,
-    horizontal: 7,
-  });
-}
-
-for (let i = 0; i < 5; i++) {
-  startBoardState.push({
-    image: `Images/battleship_${i + 1}.png`,
+    image: `Images/battleship_${i}.png`,
     vertical: i + 5,
     horizontal: 9,
+    length: 5,
+    orientation: "x",
+    class: "C",
+    piece: i,
+  });
+}
+
+for (let i = 0; i < 4; i++) {
+  startBoardState.push({
+    image: `Images/battleship_${i}.png`,
+    vertical: 3,
+    horizontal: i + 4,
+    length: 4,
+    orientation: "y",
+    class: "B",
+    piece: i,
   });
 }
 
@@ -108,13 +121,14 @@ function GameBoard() {
       setShips((value) => {
         const ships = value.map((s) => {
           if (s.vertical === boardX && s.horizontal === boardY) {
-            s.vertical = x;
             s.horizontal = y;
+            s.vertical = x;
           }
           return s;
         });
         return ships;
       });
+
       setActiveShip(null);
     }
   }
@@ -126,10 +140,12 @@ function GameBoard() {
   for (let y = 0; y < horizontal.length; y++) {
     for (let x = 0; x < vertical.length; x++) {
       let image = undefined;
+      let orientation = undefined;
 
       ships.forEach((ship) => {
         if (ship.vertical === x && ship.horizontal === y) {
           image = ship.image;
+          orientation = ship.orientation;
         }
       });
       board.push(
@@ -137,6 +153,7 @@ function GameBoard() {
           key={`${x},${y}`}
           coord={horizontal[x].concat(vertical[y])}
           image={image}
+          orientation={orientation}
         />
       );
     }
